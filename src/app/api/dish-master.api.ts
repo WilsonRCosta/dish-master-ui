@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { Dish } from "../model/model";
+import { Meal } from "../model/model";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
@@ -9,13 +9,13 @@ export class DishMasterApi {
 
     constructor(private http: HttpClient) {}
 
-    getDishes(): Observable<Dish[]> {
-        return this.http.get<Dish[]>(environment.host + '/dishes')
+    getMeals(): Observable<Meal[]> {
+        return this.http.get<Meal[]>(environment.host + '/meals')
     }
 
-    searchDishesByFoodName(foodName: string): Observable<Dish[]> {
-        return this.http.get<Dish[]>(environment.host + '/dishes/search', { 
-            params: new HttpParams().set('foodName', foodName)
+    searchMealsByIngredient(name: string): Observable<Meal[]> {
+        return this.http.get<Meal[]>(environment.host + '/meals/search/ingredient', { 
+            params: new HttpParams().set('ingredient', name)
          })
     }
 }

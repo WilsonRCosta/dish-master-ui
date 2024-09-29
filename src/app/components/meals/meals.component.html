@@ -1,52 +1,52 @@
 <div class="flex margin-bottom-1">
     <p-floatLabel class="margin-right-1">
-        <input pInputText id="food" [(ngModel)]="food" />
-        <label for="food">Search by Food</label>
+        <input pInputText id="ingredient" [(ngModel)]="ingredient" />
+        <label for="ingredient">Search by Ingredient</label>
     </p-floatLabel>
-    <p-button label="Search" (onClick)="searchByFood()" />
+    <p-button label="Search" (onClick)="searchByIngredient()" />
     
 </div>
-<p-table [value]="dishes()" dataKey="id">
+<p-table [value]="meals()" dataKey="id">
     <ng-template pTemplate="header">
     <tr>
         <th style="width: 5rem"></th>
         <th pSortableColumn="name">Name <p-sortIcon field="name" /></th>
     </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-dish let-expanded="expanded">
+    <ng-template pTemplate="body" let-meal let-expanded="expanded">
     <tr>
         <td>
         <p-button
             type="button"
             pRipple
-            [pRowToggler]="dish"
+            [pRowToggler]="meal"
             [text]="true"
             [rounded]="true"
             [plain]="true"
             [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
         />
         </td>
-        <td>{{ dish.name }}</td>
+        <td>{{ meal.name }}</td>
     </tr>
     </ng-template>
-    <ng-template pTemplate="rowexpansion" let-dish>
+    <ng-template pTemplate="rowexpansion" let-meal>
     <tr>
         <td colspan="7">
         <div class="p-3">
-            <p-table [value]="dish.food" dataKey="id">
+            <p-table [value]="meal.ingredient" dataKey="id">
                 <ng-template pTemplate="header">
                     <tr>
                         <th pSortableColumn="name">Name <p-sortIcon field="name" /></th>
-                        <th pSortableColumn="customer">Grams <p-sortIcon field="grams" /></th>
+                        <th pSortableColumn="grams">Grams <p-sortIcon field="grams" /></th>
                         <th pSortableColumn="nutrients">Nutrients <p-sortIcon field="nutrients" /></th>
                         <th style="width: 4rem"></th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-food>
+                <ng-template pTemplate="body" let-ingredient>
                     <tr>
-                        <td>{{ food.name }}</td>
-                        <td>{{ food.grams }}</td>
-                        <td>{{ this.mapNutrients(food.nutrients) }}</td>
+                        <td>{{ ingredient.name }}</td>
+                        <td>{{ ingredient.grams }}</td>
+                        <td>{{ this.mapNutrients(ingredient.nutrients) }}</td>
                     </tr>
                 </ng-template>
             </p-table>

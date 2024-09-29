@@ -4,9 +4,9 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { DishesComponent } from './dishes/dishes.component';
 import { DishMasterApi } from './api/dish-master.api';
-import { DishesFacade } from './service/dishes-facade';
+import { MealsComponent } from './components/meals/meals.component';
+import { MealsFacade } from './service/meals-facade';
 
 import { ButtonModule } from 'primeng/button';
 import { OrderListModule } from 'primeng/orderlist';
@@ -20,7 +20,7 @@ import { FormsModule } from '@angular/forms';
 @NgModule({ 
     declarations: [
         AppComponent,
-        DishesComponent
+        MealsComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent], 
@@ -38,7 +38,7 @@ import { FormsModule } from '@angular/forms';
     ],
     providers: [
         DishMasterApi, 
-        DishesFacade,
+        MealsFacade,
         provideHttpClient(withInterceptorsFromDi())
     ] 
 })

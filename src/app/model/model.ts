@@ -1,9 +1,9 @@
-export interface Dish {
+export interface Meal {
     name: string;
-    food: Food[];
+    ingredients: Ingredient[];
 }
 
-export interface Food {
+export interface Ingredient {
     name: string;
     grams: number;
     nutrients: Nutrient[];
