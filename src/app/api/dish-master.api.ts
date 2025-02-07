@@ -15,7 +15,7 @@ export class DishMasterApi {
 
     searchMealsByIngredient(name: string): Observable<Meal[]> {
         return this.http.get<Meal[]>(environment.host + '/meals/search/ingredient', { 
-            params: new HttpParams().set('ingredient', name)
+            params: new HttpParams().set('name', name)
          })
     }
 }
